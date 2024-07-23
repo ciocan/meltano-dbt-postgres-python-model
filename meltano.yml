@@ -5,3 +5,32 @@ environments:
 - name: dev
 - name: staging
 - name: prod
+jobs:
+- name: food-data
+  tasks:
+  - tap-food-data target-postgres
+plugins:
+  extractors:
+  - name: tap-food-data
+    inherit_from: tap-spreadsheets-anywhere
+    variant: ets
+    pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+    config:
+      tables:
+      - path: ${PROJECT_DIR}/seeds
+        name: food_data
+        start_date: 2024-01-01T00:00:00+0000
+        pattern: /*.csv
+        key_properties: [id, food]
+        format: csv
+  loaders:
+  - name: target-postgres
+    variant: meltanolabs
+    pip_url: meltanolabs-target-postgres
+    config:
+      add_record_metadata: true
+      default_target_schema: public
+  utilities:
+  - name: dbt-postgres
+    variant: dbt-labs
+    pip_url: dbt-core dbt-postgres git+https://github.com/meltano/dbt-ext.git@main
