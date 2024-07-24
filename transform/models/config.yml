@@ -1,0 +1,10 @@
+version: 2
+
+models:
+- name: best_overall
+  description: My transformation written in Python
+  config:
+    materialized: table
+    tags: ['python']
+  columns:
+  - name: food

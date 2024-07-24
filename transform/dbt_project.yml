@@ -2,7 +2,8 @@ name: food_nutrition_dbt
 version: '1.0'
 profile: meltano
 config-version: 2
-require-dbt-version: [">=1.0.0", "<2.0.0"]
+# require-dbt-version: [">=1.0.0", "<2.0.0"]
+require-dbt-version: ["1.7.16"]
 model-paths:
 - models
 analysis-paths:

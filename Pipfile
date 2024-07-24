@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+dbt-core = "==1.7.16"
+dbt-postgres = "==1.7.16"
+dbt-postgres-python = "==1.7.17"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

@@ -1,0 +1,3 @@
+dbt-core == 1.7.16; python_version >= "3.8"
+dbt-postgres == 1.7.16; python_version >= "3.8"
+dbt-postgres-python == 1.7.17; python_version >= "3.8"

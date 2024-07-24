@@ -1,6 +1,8 @@
 # Meltano DBT Postgres Python Model demo
 
-This is a demo project to show how to use Meltano to run DBT models in Python and store the results in a Postgres database.
+*** _*work in progress, not working yet*_ ***
+
+This is a demo project to show how to use [Meltano](https://meltano.com/) to transform data with [DBT Python models](https://docs.getdbt.com/docs/build/python-models) and load on Postgres database by using [dbt-postgres-python](https://pypi.org/project/dbt-postgres-python/) dbt adapter.
 
 ## Prerequisites
 
@@ -12,10 +14,12 @@ docker-compose up -d
 ```
 3. Install Meltano project dependencies:
 ```
+pipx install meltano
+pip install -r requirements.txt
 meltano install
 ```
 
-4. Run the ETL process:
+4. Run the ETL pipelie:
 ```
 meltano run food-data
 ```

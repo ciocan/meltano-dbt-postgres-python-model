@@ -3,8 +3,11 @@ config:
   send_anonymous_usage_stats: False
   use_colors: True
 meltano:
-  target: "{{ env_var('MELTANO_ENVIRONMENT', 'dev') }}"
+  target: "{{ env_var('MELTANO_ENVIRONMENT', 'dev_with_fal') }}"
   outputs:
+    dev_with_fal:
+      type: fal # "fal" type is kept for backwards compatibility
+      db_profile: dev # This points to your main adapter
     dev:
       type: postgres
       host: "{{ env_var('DBT_POSTGRES_HOST') }}"
