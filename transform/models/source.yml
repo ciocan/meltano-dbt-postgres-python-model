@@ -1,0 +1,8 @@
+config-version: 2
+version: 2
+sources:
+- name: tap_food_data
+  schema: tap_food_data
+  tables:
+  - name: food_data
+

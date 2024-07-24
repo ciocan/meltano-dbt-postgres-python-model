@@ -1,4 +1,6 @@
 version: 1
+env:
+  DBT_CLEAN_PROJECT_FILES_ONLY: 'false'
 default_environment: dev
 project_id: 4ff89ac4-c440-4182-9b8d-823179d09c5c
 environments:
@@ -9,6 +11,7 @@ jobs:
 - name: food-data
   tasks:
   - tap-food-data target-postgres
+  - dbt-postgres:run
 plugins:
   extractors:
   - name: tap-food-data
@@ -29,8 +32,9 @@ plugins:
     pip_url: meltanolabs-target-postgres
     config:
       add_record_metadata: true
-      default_target_schema: public
   utilities:
   - name: dbt-postgres
     variant: dbt-labs
     pip_url: dbt-core dbt-postgres git+https://github.com/meltano/dbt-ext.git@main
+    config:
+      schema: food_nutrition
